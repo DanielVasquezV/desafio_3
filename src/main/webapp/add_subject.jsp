@@ -45,9 +45,9 @@
                 <i class="fa-solid fa-pencil"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Añadir notas</h3>
             </a>
-            <a class="flex p-4 items-center rounded-md my-1 text-[#59656F] justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="">
+            <a class="flex p-4 items-center rounded-md my-1 text-[#59656F] justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
                 <i class="fa-solid fa-id-card-clip"></i>
-                <h3 class="ml-2 hidden hidden lg:block">Ver estudiantes</h3>
+                <h3 class="ml-2 hidden hidden lg:block">Ver materias</h3>
             </a>
         </div>
     </div>

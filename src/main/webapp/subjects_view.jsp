@@ -1,8 +1,9 @@
-<%--
+<%@ page import="beans.Materia" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Daniel
   Date: 08/05/2024
-  Time: 10:04 a. m.
+  Time: 5:50 p. m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,7 +27,7 @@
                 <i class="fa-solid fa-house"></i>
                 <h3 class="ml-2 hidden lg:block">Inicio</h3>
             </a>
-            <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="add_student.jsp">
+            <a class="flex p-4 items-center rounded-md my-1 text-[#59656F] justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="add_student.jsp">
                 <i class="fa-solid fa-user-tie"></i>
                 <h3 class="ml-2 hidden lg:block">Añadir estudiantes</h3>
             </a>
@@ -38,7 +39,7 @@
                 <i class="fa-solid fa-pencil"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Añadir notas</h3>
             </a>
-            <a class="flex p-4 items-center rounded-md my-1 text-[#59656F] justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
+            <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
                 <i class="fa-solid fa-id-card-clip"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Ver materias</h3>
             </a>
@@ -46,7 +47,7 @@
     </div>
     <!--CONTENIDO DE LA PÁGINA-->
     <main class="overflow-x-auto p-7 mb-4 md:bt-0 md:ml-2 bg-white md:w-5/6 rounded-lg h-full">
-        <h2 class="text-4xl font-bold mb-4 text-[#59656F] underline">Añadir un estudiante</h2>
+        <h2 class="text-4xl font-bold mb-4 text-[#59656F] underline">Materias</h2>
         <!--MENSAJE DE ÉXITO
         <div class="mx-[1rem] bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">¡Éxito!</strong>
@@ -58,33 +59,33 @@
             <span class="block sm:inline">Hubo un problema con su solicitud.</span>
         </div> -->
         <div class="bg-white shadow-md rounded-md p-8 w-full border border-slate-200 mt-8">
-            <form action="" method="">
-                <div class="flex items-center mb-[3rem]">
-                    <div class="mr-4">
-                        <i class="fas fa-user text-gray-400"></i>
-                    </div>
-                    <input type="text" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Nombres" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
-                </div>
-                <div class="flex items-center mb-[3rem]">
-                    <div class="mr-4">
-                        <i class="fas fa-user text-gray-400"></i>
-                    </div>
-                    <input type="text" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Apellidos" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
-                </div>
-                <div class="flex items-center mb-[3rem]">
-                    <div class="mr-4">
-                        <i class="fa-solid fa-location-dot text-gray-400"></i>
-                    </div>
-                    <input type="text" pattern="[A-Za-z0-9áéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras y números" placeholder="Dirección" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
-                </div>
-                <div class="flex items-center mb-[3rem]">
-                    <div class="mr-4">
-                        <i class="fas fa-phone-alt text-gray-400"></i>
-                    </div>
-                    <input type="tel" pattern="[0-9]{4}-[0-9]{4}" title="Ingrese un número de teléfono válido (formato: 0000-0000)" placeholder="Teléfono" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
-                </div>
-                <button type="submit" class="font-semibold bg-[#AC9FBB] text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-90 transition w-full">Enviar</button>
-            </form>
+            <table class="min-w-full">
+                <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2">Nombre de materia</th>
+                    <th class="px-4 py-2">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <%
+                        List<Materia> materias = (List<Materia>) request.getAttribute("materias");
+                        if (materias != null) {
+                            for (Materia materia : materias) {
+                    %>
+                        <tr>
+                            <td class="border px-4 py-2"><%= materia.getNombre() %></td>
+                            <td class="border px-4 py-2 flex">
+                                <button class="self-center font-semibold bg-[#AC9FBB] hover:opacity-90 text-white font-bold py-2 px-4 rounded">
+                                    Ver más
+                                </button>
+                            </td>
+                        </tr>
+                    <%
+                            }
+                        }
+                    %>
+                </tbody>
+            </table>
         </div>
     </main>
 </div>
