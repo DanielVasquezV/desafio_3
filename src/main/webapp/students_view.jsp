@@ -1,14 +1,13 @@
-
 <%@ page import="java.util.List" %>
-<%@ page import="sv.edu.udb.desafio_3.beans.Materia" %><%--
+<%@ page import="sv.edu.udb.desafio_3.beans.Student" %><%--
   Created by IntelliJ IDEA.
   User: Daniel
   Date: 08/05/2024
   Time: 5:50 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%if (request.getAttribute("materias") == null){
-%><jsp:forward page="/fetchSubject"/>
+<%if (request.getAttribute("estudiantes") == null){
+%><jsp:forward page="/fetchStudent"/>
 <%}%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE>
@@ -45,6 +44,10 @@
             </a>
             <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
                 <i class="fa-solid fa-id-card-clip"></i>
+                <h3 class="ml-2 hidden hidden lg:block">Ver Estudiantes</h3>
+            </a>
+            <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
+                <i class="fa-solid fa-id-card-clip"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Ver materias</h3>
             </a>
         </div>
@@ -56,28 +59,37 @@
             <table class="min-w-full">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="px-4 py-2">Nombre de materia</th>
+                    <th class="px-4 py-2">Nombres</th>
+                    <th class="px-4 py-2">Apellidos</th>
+                    <th class="px-4 py-2">Dirección</th>
+                    <th class="px-4 py-2">Teléfono</th>
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <%
-                        List<Materia> materias = (List<Materia>) request.getAttribute("materias");
-                        if (materias != null) {
-                            for (Materia materia : materias) {
-                    %>
-                        <tr>
-                            <td class="border px-4 py-2"><%= materia.getMateria() %></td>
-                            <td class="border px-4 py-2 flex justify-center">
-                                <a href="subject_details.jsp?idMateria=<%= materia.getIdMateria() %>&name=<%= materia.getMateria() %>" class="self-center font-semibold bg-[#AC9FBB] hover:opacity-90 text-white font-bold py-2 px-4 rounded">
-                                    Ver más
-                                </a>
-                            </td>
-                        </tr>
-                    <%
-                            }
+                <%
+                    List<Student> estudiantes = (List<Student>) request.getAttribute("estudiantes");
+                    if (estudiantes != null) {
+                        for (Student estudiante : estudiantes) {
+                %>
+                <tr>
+                    <td class="border px-4 py-2"><%= estudiante.getNombres() %></td>
+                    <td class="border px-4 py-2"><%= estudiante.getApellidos() %></td>
+                    <td class="border px-4 py-2"><%= estudiante.getDireccion() %></td>
+                    <td class="border px-4 py-2"><%= estudiante.getTelefono() %></td>
+                    <td class="border px-4 py-2 flex justify-center gap-4">
+                        <a href="" class="self-center font-semibold bg-[#AC9FBB] hover:opacity-90 text-white font-bold py-2 px-4 rounded">
+                            Editar
+                        </a>
+                        <a href="" class="self-center font-semibold bg-red-400 hover:opacity-90 text-white font-bold py-2 px-4 rounded">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+                <%
                         }
-                    %>
+                    }
+                %>
                 </tbody>
             </table>
         </div>

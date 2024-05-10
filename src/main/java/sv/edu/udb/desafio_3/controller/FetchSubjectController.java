@@ -1,28 +1,37 @@
 package sv.edu.udb.desafio_3.controller;
 
-import java.io.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import sv.edu.udb.desafio_3.beans.Materia;
+import utils.DBConnection;
 
-@WebServlet(name = "FetchSubjectControllerServlet", value = "/FetchSubjectController-servlet")
+@WebServlet(name = "fetchSubject", value = "/fetchSubject")
 public class FetchSubjectController extends HttpServlet {
-    private String message;
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Materia> materias = new ArrayList<>();
 
-    public void init() {
-        message = "Hello World!";
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-    }
-
-    public void destroy() {
+        try {
+            String selectSql = "SELECT idMateria, nombre FROM materias";
+            ResultSet subjResultSet = DBConnection.executeQueryWithResultSet(selectSql);
+            while (subjResultSet.next()) {
+                int idMateria = subjResultSet.getInt("idMateria");
+                String nombre = subjResultSet.getString("nombre");
+                Materia materia = new Materia(idMateria, nombre);
+                materias.add(materia);
+            }
+            request.setAttribute("materias", materias);
+            request.getRequestDispatcher("subjects_view.jsp").forward(request, response);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
