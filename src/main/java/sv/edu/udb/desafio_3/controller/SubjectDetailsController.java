@@ -58,7 +58,7 @@ public class SubjectDetailsController extends HttpServlet {
 
         } catch (SQLException e) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error interno del servidor.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

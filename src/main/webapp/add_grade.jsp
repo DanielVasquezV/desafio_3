@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="sv.edu.udb.desafio_3.model.SubjectModel"%>
+<%@page import="sv.edu.udb.desafio_3.model.SelectModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="sv.edu.udb.desafio_3.beans.Materia" %>
 <!DOCTYPE>
@@ -18,7 +18,7 @@
 </head>
 <body class="">
 <%!
-    SubjectModel subjectSelectModel = new SubjectModel();
+    SelectModel subjectSelectModel = new SelectModel();
 %>
 <div class="w-fulll flex flex-col-reverse md:flex-row md:h-screen bg-[#F7EBEC] p-5 h-dvh">
     <!-- SIDEBAR -->

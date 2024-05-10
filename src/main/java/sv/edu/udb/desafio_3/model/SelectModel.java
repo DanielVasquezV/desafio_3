@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import utils.DBConnection;
 
-public class SubjectModel {
+public class SelectModel {
     Connection conn;
 
     public ArrayList<Materia> showSubject(){
