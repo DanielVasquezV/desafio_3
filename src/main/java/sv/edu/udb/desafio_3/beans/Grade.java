@@ -1,21 +1,21 @@
 package sv.edu.udb.desafio_3.beans;
 
-public class Nota {
+public class Grade {
     private int idEstudiante;
     private int idMateria;
     private double nota;
 
-    public Nota(int idEstudiante, int idMateria, double nota){
+    public Grade(int idEstudiante, int idMateria, double nota){
         this.idEstudiante = idEstudiante;
         this.idMateria = idMateria;
         this.nota = nota;
     }
 
-    public Nota() {
+    public Grade() {
 
     }
 
-    public Nota(int studentId, double nota) {
+    public Grade(int studentId, double nota) {
         this.idEstudiante = studentId;
         this.nota=nota;
     }

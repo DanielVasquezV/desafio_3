@@ -1,13 +1,13 @@
 package sv.edu.udb.desafio_3.beans;
 
-public class Estudiante {
+public class Student {
     private int idEstudiante;
     private String nombres;
     private String apellidos;
     private String direccion;
     private String telefono;
 
-    public Estudiante(int idEstudiante, String nombres, String apellidos, String direccion, String telefono){
+    public Student(int idEstudiante, String nombres, String apellidos, String direccion, String telefono){
         this.idEstudiante = idEstudiante;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -15,7 +15,7 @@ public class Estudiante {
         this.telefono = telefono;
     }
 
-    public Estudiante() {
+    public Student() {
 
     }
 

@@ -58,30 +58,30 @@
             <span class="block sm:inline">Hubo un problema con su solicitud.</span>
         </div> -->
         <div class="bg-white shadow-md rounded-md p-8 w-full border border-slate-200 mt-8">
-            <form action="" method="">
+            <form action="add-student" method="POST">
                 <div class="flex items-center mb-[3rem]">
                     <div class="mr-4">
                         <i class="fas fa-user text-gray-400"></i>
                     </div>
-                    <input type="text" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Nombres" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
+                    <input type="text" name="nombres" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Nombres" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
                 </div>
                 <div class="flex items-center mb-[3rem]">
                     <div class="mr-4">
                         <i class="fas fa-user text-gray-400"></i>
                     </div>
-                    <input type="text" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Apellidos" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
+                    <input type="text" name="apellidos" pattern="[A-Za-záéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras" placeholder="Apellidos" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
                 </div>
                 <div class="flex items-center mb-[3rem]">
                     <div class="mr-4">
                         <i class="fa-solid fa-location-dot text-gray-400"></i>
                     </div>
-                    <input type="text" pattern="[A-Za-z0-9áéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras y números" placeholder="Dirección" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
+                    <input type="text" name="direccion" pattern="[A-Za-z0-9áéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras y números" placeholder="Dirección" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
                 </div>
                 <div class="flex items-center mb-[3rem]">
                     <div class="mr-4">
                         <i class="fas fa-phone-alt text-gray-400"></i>
                     </div>
-                    <input type="tel" pattern="[0-9]{4}-[0-9]{4}" title="Ingrese un número de teléfono válido (formato: 0000-0000)" placeholder="Teléfono" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
+                    <input type="tel" name="telefono" pattern="[0-9]{4}-[0-9]{4}" title="Ingrese un número de teléfono válido (formato: 0000-0000)" placeholder="Teléfono" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1" required>
                 </div>
                 <button type="submit" class="font-semibold bg-[#AC9FBB] text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-90 transition w-full">Enviar</button>
             </form>
