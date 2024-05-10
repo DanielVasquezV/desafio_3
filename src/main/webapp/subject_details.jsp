@@ -16,60 +16,7 @@
     <title>Control de estudiantes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/f008f6fb10.js" crossorigin="anonymous"></script>
-    <style>
-        #editModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        #editForm input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        #editForm button {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            background-color: #AC9FBB;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #editForm button:hover {
-            opacity: 90;
-        }
-
-        .close{
-            cursor: pointer;
-            right: 0;
-            top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/modal_styles.css">
 </head>
 <body class="">
 <div class="w-fulll flex flex-col-reverse md:flex-row md:h-screen bg-[#F7EBEC] p-5 h-dvh">
@@ -96,8 +43,12 @@
                 <i class="fa-solid fa-pencil"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Añadir notas</h3>
             </a>
-            <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
+            <a class="flex p-4 items-center rounded-md my-1 text-[#59656F] justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="students_view.jsp">
                 <i class="fa-solid fa-id-card-clip"></i>
+                <h3 class="ml-2 hidden hidden lg:block">Ver Estudiantes</h3>
+            </a>
+            <a class="flex p-4 items-center rounded-md my-1 bg-[#59656F] text-white justify-center lg:justify-start cursor-pointer hover:font-bold ease-in duration-100" href="subjects_view.jsp">
+                <i class="fa-solid fa-book"></i>
                 <h3 class="ml-2 hidden hidden lg:block">Ver materias</h3>
             </a>
         </div>
@@ -154,7 +105,7 @@
     <div class="modal-content">
         <div class="flex w-[100%] justify-end"><span class="close" onclick="closeEditModal()">&times;</span></div>
         <h2 class="text-center font-semibold text-lg mb-4">Editar Nota</h2>
-        <form id="editForm">
+        <form id="editForm" class="flex flex-col">
             <input type="hidden" id="estudianteId" name="estudianteId">
             <input type="hidden" id="materiaId" name="materiaId" value="<%= idMateria %>">
             <input type="hidden" id="materiaNombre" name="materiaNombre" value="<%= nombreMateria %>">

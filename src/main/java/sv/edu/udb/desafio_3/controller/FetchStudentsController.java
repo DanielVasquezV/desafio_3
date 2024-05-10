@@ -28,7 +28,7 @@ public class FetchStudentsController extends HttpServlet {
                 String apellidos = subjResultSet.getString("apellidos");
                 String telefono = subjResultSet.getString("telefono");
                 String direccion = subjResultSet.getString("direccion");
-                Student estudiante = new Student(idEstudiante, nombres, apellidos, telefono, direccion);
+                Student estudiante = new Student(idEstudiante, nombres, apellidos, direccion, telefono);
                 estudiantes.add(estudiante);
             }
             request.setAttribute("estudiantes", estudiantes);
