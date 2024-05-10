@@ -48,9 +48,10 @@
             </a>
         </div>
     </div>
-    <main class="p-7 mb-4 md:bt-0 md:ml-2 bg-white md:w-5/6 rounded-lg h-full">
-        <h2 class="text-4xl font-bold mb-4 text-[#59656F]">Inicio</h2>
-        <h3 class="">Bienvenido Administrador</h3>
+    <main class="p-7 mb-4 md:bt-0 md:ml-2 bg-white md:w-5/6 rounded-lg h-full flex items-center justify-center flex-col">
+        <h2 class="text-7xl font-bold mb-4 text-[#59656F] text-center">Inicio</h2>
+        <i class="fa-solid fa-school text-6xl"></i>
+        <h3 class="text-center text-2xl bottom-1">Bienvenido Administrador</h3>
     </main>
 </div>
 </body>

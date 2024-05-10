@@ -69,12 +69,12 @@
             <span class="block sm:inline">Hubo un problema con su solicitud.</span>
         </div> -->
         <div class="bg-white shadow-md rounded-md p-8 w-full border border-slate-200 mt-8">
-            <form action="" method="">
+            <form action="Add-subject" method="POST">
                 <div class="flex items-center my-[1.5rem]">
                     <div class="mr-4">
                         <i class="fa-solid fa-pencil text-gray-400"></i>
                     </div>
-                    <input required type="text" pattern="[A-Za-z0-9áéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras y números" placeholder="Nombre de la materia" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1">
+                    <input required type="text" name="nombre" pattern="[A-Za-z0-9áéíóúÁÉÍÓÚ\s]+" title="Ingrese solo letras y números" placeholder="Nombre de la materia" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1">
                 </div>
                 <button type="submit" class="font-semibold bg-[#AC9FBB] text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-90 transition w-full">Enviar</button>
             </form>
