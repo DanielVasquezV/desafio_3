@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import sv.edu.udb.desafio_3.beans.Student;
-import sv.edu.udb.desafio_3.model.addStudentModel;
+import sv.edu.udb.desafio_3.model.AddStudentModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,7 +24,7 @@ public class AddStudentController extends HttpServlet {
         Student student = new Student(idEstudiante, nombres, apellidos, direccion, telefono);
 
         // Instanciar el modelo para agregar un estudiante
-        addStudentModel addStudentModel = new addStudentModel();
+        AddStudentModel addStudentModel = new AddStudentModel();
 
         try {
             // Llamar al método para agregar un estudiante

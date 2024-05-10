@@ -9,6 +9,7 @@
 <%@page import="sv.edu.udb.desafio_3.model.SelectModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="sv.edu.udb.desafio_3.beans.Materia" %>
+<%@ page import="sv.edu.udb.desafio_3.beans.Student" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -19,6 +20,7 @@
 <body class="">
 <%!
     SelectModel subjectSelectModel = new SelectModel();
+    SelectModel studentSelectModel = new SelectModel();
 %>
 <div class="w-fulll flex flex-col-reverse md:flex-row md:h-screen bg-[#F7EBEC] p-5 h-dvh">
     <!-- SIDEBAR -->
@@ -64,21 +66,29 @@
             <span class="block sm:inline">Hubo un problema con su solicitud.</span>
         </div> -->
         <div class="bg-white shadow-md rounded-md p-8 w-full border border-slate-200 mt-8">
-            <form action="SubjectSelectController" method="POST">
+            <form action="Add-Grade" method="POST">
                 <div class="flex gap-3 items-center" >
                     <div class="flex items-center my-[1.5rem] w-[90%]">
                         <div class="mr-4">
                             <i class="fa-solid fa-user text-gray-400"></i>
                         </div>
-                        <select name="" id="" class="flex-1 p-2 border border-slate-200 rounded" required>
+                        <select name="IdEstudiante"  class="flex-1 p-2 border border-slate-200 rounded" required>
                             <option class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB]" value="" selected disabled>Seleccione un estudiante</option>
+                            <%
+                                ArrayList<Student> list = studentSelectModel.showStudent();
+                                for (Student student : list) {
+                            %>
+                            <option value="<%= student.getIdEstudiante() %>" > <%= student.getApellidos()%> <%= student.getNombres() %></option>
+                            <%
+                                }
+                            %>
                         </select>
                     </div>
                     <div class="flex items-center my-[1.5rem] w-[90%]">
                         <div class="mr-4">
                             <i class="fa-solid fa-clipboard text-gray-400"></i>
                         </div>
-                        <select name="" class="flex-1 p-2 border border-slate-200 rounded" required>
+                        <select name="IdMateria" class="flex-1 p-2 border border-slate-200 rounded" required>
                             <option class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB]" value="" selected disabled>Seleccione una materia</option>
                             <%
                                 ArrayList<Materia> lista = subjectSelectModel.showSubject();
@@ -95,7 +105,7 @@
                     <div class="mr-4">
                         <i class="fa-solid fa-file-pen text-gray-400"></i>
                     </div>
-                    <input required type="number" id="nota" name="nota" min="0" max="10" step="0.01" placeholder="Ingrese la nota" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1">
+                    <input required type="number" name="Nota" id="nota" min="0" max="10" step="0.01" placeholder="Ingrese la nota" class="border-b border-gray-300 focus:outline-none focus:border-[#AC9FBB] flex-1">
                 </div>
                 <button type="submit" class="font-semibold bg-[#AC9FBB] text-white py-2 px-4 rounded-md focus:outline-none hover:opacity-90 transition w-full">Enviar</button>
             </form>

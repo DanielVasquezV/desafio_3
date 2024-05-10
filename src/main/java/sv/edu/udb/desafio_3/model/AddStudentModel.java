@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class addStudentModel  extends DBConnection {
+public class AddStudentModel extends DBConnection {
 
     public int AddStudent(Student student)  throws SQLException {
         Connection conn = null;
